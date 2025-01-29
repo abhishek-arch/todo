@@ -58,9 +58,9 @@ let newTodos = todos.filter((item) => item.id !== id);
   return (
     <>
       <Navbar />
-      <div className="bg-violet-200 min-h-[80vh] mx-3 overflow-scroll md:mx-auto my-5 w-1/2">
+      <div className="bg-violet-200 min-h-[80vh] mx-3 overflow-auto md:mx-auto my-5 w-1/2">
         <h2 className="text-xl font-bold py-4 px-3"> Add a Todo</h2>
-        <div className="input p-3 flex items-center gap-2">
+        <div className="input p-3 flex flex-col gap-2">
           <input 
             onChange={handlechange}
             value={todo}
@@ -70,7 +70,7 @@ let newTodos = todos.filter((item) => item.id !== id);
           />
           <button
             onClick={handleAdd} disabled={!todo}
-            className="bg-violet-700 w-11 rounded-md text-white font-bold"
+            className="bg-violet-700 w-full cursor-pointer rounded-md text-white font-bold"
           >
            Save
           </button>
@@ -80,7 +80,7 @@ let newTodos = todos.filter((item) => item.id !== id);
         {todos.length === 0 && <div className="text-center text-xl font-bold">No Todos</div>}
         {todos.map((item) => (
           (showfinished || !item.isCompleted) &&
-          <div key={item.id} className="todos flex justify-between mb-[12px] ">
+          <div key={item.id} className="todos p-2 flex justify-between mb-[12px] ">
             <div
              
               className={`text w-2xs gap-2  items-center flex  ${
